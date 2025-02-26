@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 
 interface Job {
-  id: string;
+  _id: string;
   title: string;
   company: string;
   location: string;
@@ -89,7 +89,7 @@ const Dashboard = () => {
       });
 
       if (response.ok) {
-        setJobs(jobs.filter((job) => job.id !== id));
+        setJobs(jobs.filter((job) => job._id !== id));
         alert("Job deleted successfully.");
       } else {
         alert("Failed to delete job.");
@@ -172,7 +172,7 @@ const Dashboard = () => {
                       Edit
                     </button>
                     <button
-                      onClick={() => handleDelete(job.id)}
+                      onClick={() => handleDelete(job._id)}
                       className="bg-red-500 text-white px-4 py-1 rounded-sm hover:bg-red-600 transition"
                     >
                       Delete
